@@ -1,0 +1,96 @@
+{% extends "cms/base.html" %}
+
+{% block title -%}
+    修改板块
+{%- endblock %}
+
+{% block head %}
+    {#    <script src="{{ url_for('static',filename='cms/js/edit_staff.js') }}"></script>#}
+{% endblock %}
+
+{% block page_title -%}
+    {{ self.title() }}
+{%- endblock %}
+
+{% block main_content %}
+    <h2 style="color: #db4055">修改板块名字</h2>
+{#        <form action="{{ url_for('cms.edit_staff',user_id=user.id) }}" method="post">#}
+{#        <form action="{{ url_for('cms.change_board_name') }}" method="POST" style="color: #FFAE42">#}
+{#            {{ form.csrf_token }}#}
+{#            <div>#}
+{#                <label for="original_name">原板块名字：</label><br>#}
+{#                <p>{{ board_name }}</p>#}
+{#                <input type="text" id="original_name" name="original_name" required><br>#}
+{##}
+{#                <input type="text" id="original_name" name="original_name" required><br>#}
+{#            </div>#}
+{#            <div>#}
+{#                <label for="new_name">新板块名字：</label><br>#}
+{#                <input type="text" id="new_name" name="new_name" required><br>#}
+{#            </div>#}
+{#            <div>#}
+{#                <label for="reason">理由：</label><br>#}
+{#                <textarea id="reason" name="reason" rows="4" cols="50"></textarea><br>#}
+{#            </div>#}
+{#            <div>#}
+{#                <label for="contact">联系方式：</label><br>#}
+{#                <input type="text" id="contact" name="contact"><br>#}
+{#            </div>#}
+{#            <br>#}
+{#            <input type="submit" value="提交">#}
+{#        </form>#}
+
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid yellowgreen;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            {#background-color: #f2f2f2;#}
+        }
+        .form-table {
+            margin: auto;
+        }
+        .form-table input[type="submit"] {
+            margin-top: 10px;
+        }
+    </style>
+    <form action="{{ url_for('cms.change_board_name') }}" method="POST">
+        <table class="form-table" style="color: white">
+            <tr>
+                <th><label for="origin_board_id">原板块ID：</label></th>
+{#                <td><p>{{ board_id }}</p></td>#}
+                <td><input type="text" id="origin_board_id" name="origin_board_id" required placeholder="原板块板块ID为：{{ board_id }}"></td>
+            </tr>
+            <tr>
+                <th><label for="new_board_id">新板块ID：</label></th>
+                <td><input type="text" id="new_board_id" name="new_board_id" required></td>
+            </tr>
+            <tr>
+                <th><label for="original_name">原板块名字：</label></th>
+{#                <td><p>{{ board_name }}</p></td>#}
+                <td><input type="text" id="original_name" name="original_name" required placeholder="原板块板块名称为：{{ board_name }}"></td>
+            </tr>
+            <tr>
+                <th><label for="new_name">新板块名字：</label></th>
+                <td><input type="text" id="new_name" name="new_name" required></td>
+            </tr>
+            <tr>
+                <th>理由：</th>
+                <td><textarea id="reason" name="reason" rows="4" cols="50"></textarea></td>
+            </tr>
+            <tr>
+                <th>联系方式：</th>
+                <td><input type="text" id="contact" name="contact"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><input type="submit" value="提交"></td>
+            </tr>
+        </table>
+    </form>
+{% endblock %}

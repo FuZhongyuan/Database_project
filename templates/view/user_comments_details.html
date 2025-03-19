@@ -1,0 +1,52 @@
+{% extends 'front/base.html' %}
+
+{% block title %}
+    {{ comments[0].username }}评论详情
+{% endblock %}
+{% block head %}
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .comment {
+            margin-bottom: 20px;
+        }
+
+        .comment h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .comment p {
+            margin: 5px 0;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px dashed #999;
+            margin: 20px 0;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <h1 style="color: white">{{ comments[0].username }}的详细评论</h1>
+    {% for comment in comments %}
+        <div class="comment">
+            <h3>评论ID: {{ comment.comment_id }}</h3>
+            <p>评论内容: {{ comment.content }}</p>
+            <p>评论时间: {{ comment.create_time }}</p>
+            <p>帖子ID: {{ comment.post_id }}</p>
+        </div>
+        <hr>
+    {% endfor %}
+{% endblock %}

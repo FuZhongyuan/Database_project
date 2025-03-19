@@ -1,0 +1,108 @@
+/*.btn-primary{*/
+/*    background-color: skyblue;*/
+/*    border: none;*/
+/*    border-radius: 12px;*/
+/*    color:white;*/
+/*    padding: 15px 32px;*/
+/*    text-align: center;*/
+/*    text-decoration: none;*/
+/*    display: inline-block;*/
+/*    font-size: 16px;*/
+/*    margin: 4px 2px;*/
+/*    cursor: pointer;*/
+/*    transition-duration: 0.4s;*/
+/*    -webkit-transition-duration: 0.4s;*/
+/*}*/
+#add-board-btn {
+    float: right;
+
+    opacity: 1; /* 半透明 */
+}
+
+.top-box {
+    background: none;
+    border: none; /* 移除边框 */
+}
+
+
+.btn {
+    /* 基础样式 */
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease; /* 平滑过渡效果 */
+}
+
+.btn-default {
+    background-color: #f8f9fa; /* 默认背景色 */
+    color: #333; /* 文字颜色 */
+}
+
+.btn-sm {
+    padding: 5px 10px; /* 小号按钮的内边距 */
+}
+
+.edit-board-btn {
+    background-color: #007bff; /* 编辑按钮的背景色 */
+    color: #fff; /* 文字颜色 */
+}
+
+.edit-board-btn:hover {
+    background-color: #0056b3; /* 鼠标悬停时的背景色 */
+}
+
+.btn {
+    padding: 8px 15px; /* 基础内边距 */
+    font-size: 14px; /* 字体大小 */
+    font-weight: bold; /* 字体加粗 */
+    border: none; /* 无边框 */
+    border-radius: 4px; /* 圆角边框 */
+    cursor: pointer; /* 鼠标悬停时显示指针 */
+    outline: none; /* 点击时不显示轮廓 */
+    transition: background-color 0.3s; /* 背景颜色变化过渡效果 */
+}
+
+
+
+.btn-sm {
+    padding: 5px 10px; /* 小号按钮的内边距 */
+}
+
+.btn-danger {
+    background-color: #dc3545; /* 危险按钮的背景色 */
+    color: white; /* 文字颜色 */
+}
+
+.btn-danger:hover,
+.btn-danger:focus {
+    background-color: #8B0000; /* 鼠标悬停或聚焦时的背景色 */
+}
+
+.btn-danger:active {
+    background-color: #bd2130; /* 鼠标按下时的背景色 */
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125); /* 按下时的阴影效果 */
+}
+
+.delete-board-btn:active {
+    color: black; /* 按下时文字颜色变为黑色 */
+}
+
+
+/* 如果需要，可以为按钮添加动画效果 */
+.delete-board-btn:hover {
+    transform: scale(1.05); /* 鼠标悬停时放大按钮 */
+}
+
+.delete-board-btn:active {
+    transform: scale(0.95); /* 鼠标按下时缩小按钮 */
+}
+
+/* 可以添加更多样式来满足你的需求 */
+
+/*body>*{*/
+/*    color: #FFAE42*/
+/*}*/

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="zh-CN">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>论坛使用说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            background-image: radial-gradient(white, black);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .shu {
+            position: relative;
+            width: 525px;
+            height: 700px;
+            background-color: rgba(255, 255, 255, 0.774);
+            transform-style: preserve-3d;
+            box-shadow: 300px 0px 30px rgb(0, 0, 0, .6) inset;
+            transition: 1s cubic-bezier(.79, .34, .47, .92);
+        }
+
+        .shu::after {
+            content: '';
+            position: absolute;
+            height: 3px;
+            width: 303px;
+            left: 0px;
+            bottom: -3px;
+            /*  background-color: rgb(100, 96, 96); */
+            background-image: linear-gradient(to right, rgb(71, 68, 68), rgba(124, 120, 120, 0.3));
+            border-bottom-left-radius: 5px;
+        }
+
+        .shu::before {
+            content: '';
+            position: absolute;
+            width: 3px;
+            height: 100%;
+            right: -3px;
+            top: 0px;
+            background-color: rgb(112, 108, 108);
+            background-image: linear-gradient(to top, rgb(114, 111, 111), rgba(90, 87, 87, 0.5));;
+            border-top-right-radius: 3px;
+        }
+
+        .shu:hover {
+            box-shadow: 30px 0px 30px rgb(0, 0, 0, .6) inset;
+            transform: rotate(-5deg);
+
+        }
+
+        .feng {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            background-image: url('https://p0.itc.cn/q_70/images03/20210816/7bbd631a29634896a9901c814aa27cae.jpeg');
+        {#background-image: url('https://ts1.cn.mm.bing.net/th/id/R-C.6347cda930991a1410abcb300532cd3b?rik=zMJWFDt6%2bwtQsA&riu=http%3a%2f%2fa.ksbbs.com%2fMon_1701%2f50_676936_b926eba53664c1d.gif%3f2021&ehk=qfuoiWKG4xOyZjSdvLTyjrsDmYLDk8ugZyvoaIvlO3E%3d&risl=&pid=ImgRaw&r=0');#} background-color: rgba(255, 255, 255, 0.1);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed; /*将图片固定*/
+        {#position: absolute; /*图片定位*/#}{#background-size: 100% ;#} transform-origin: left;
+            transition: 1s cubic-bezier(.79, .34, .47, .92);
+            border-top-left-radius: 2px;
+            border-bottom-left-radius: 2px;
+
+
+        }
+
+        .shu:hover .feng {
+            transform: rotateY(-140deg);
+
+        }
+
+
+        .wen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            font-family: 'fangsong';
+            text-align: left;
+        }
+    </style>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        .main {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(0, 0, 0);
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            align-content: space-around;
+            cursor: pointer;
+        }
+
+        .dot {
+            position: relative;
+            width: 20px;
+            height: 20px;
+
+        }
+
+        .dot::before {
+            content: '';
+            position: absolute;
+            top: 1px;
+            left: 1px;
+            bottom: 1px;
+            right: 1px;
+            background-color: rgba(65, 64, 64, .5);
+            border-radius: 50%;
+            transition: all 120s ease-out;
+
+        }
+
+        .dot:hover::before {
+            background-color: var(--color);
+            box-shadow: 0 0 2px var(--color),
+            0 0 4px var(--color),
+            0 0 6px var(--color),
+            0 0 8px var(--color);
+            transition: all 0s ease-out;
+        }
+
+        .txt {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'fangsong';
+            font-size: 80px;
+            color: rgba(255, 255, 255, .6);
+            letter-spacing: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="main">
+    <h1 class="txt"></h1>
+    <div class="dot" style="--color: red;"></div>
+</div>
+<div class="shu">
+    <div class="feng"></div>
+    <div class="wen">
+        <h3 style="padding-top: 25px;padding-left: 20px;">使用说明</h3>
+        <p style="padding-top: 10px; padding-left: 20px;padding-right: 7px; word-break:break-all;word-wrap:break-word;">
+            论坛使用说明<br>
+            欢迎使用我们的论坛！论坛是一个交流平台，让用户能够分享观点、提出问题、讨论话题并建立联系。为了保持良好的用户体验和秩序，请阅读以下使用说明。<br>
+            开发者信息：<br>
+
+            1.论坛名称：[论坛名称]
+            2.开发者：[开发者名称或团队名称]
+            3.版本：[版本号]
+            4.联系方式：[联系方式，例如电子邮件或社交媒体]<br>
+
+            注意事项：<br>
+
+            1.尊重他人：请尊重其他用户的观点和意见。避免使用侮辱性、挑衅性或歧视性语言。
+            2.遵守规则：请遵守论坛的使用规则和社区准则。这些规则旨在保护所有用户的权益并维护良好的交流环境。
+            3.尊重版权：不要在论坛上发布未经授权的版权内容。确保你有权分享任何图片、视频、文本或其他内容。
+            4.保护个人信息：不要在论坛上公开个人敏感信息，如电话号码、地址或银行账号。请保护自己和他人的隐私。
+            5.避免垃圾信息：不要发布垃圾信息、广告或未经请求的推广内容。这会影响论坛的整洁度和用户体验。
+            6.尊重管理员：遵循管理员的指示和决定。管理员有权对违反规则的用户进行警告、禁言或封禁。
+            7.贡献内容：欢迎贡献有意义的内容，包括提出问题、分享经验、回答他人的问题或提供建设性的反馈。
+            8.报告问题：如果你发现任何违规行为或论坛存在的问题，请及时向管理员报告，帮助我们维护论坛的秩序和安全。
+            9.保持礼貌：在交流中，请保持礼貌和友善。尊重他人的观点，并愿意倾听和理解不同的看法。
+            10.安全提示：在使用论坛时，请注意网络安全，避免点击可疑链接或下载未知来源的文件。谨慎保护个人信息和设备安全。<br>
+
+            如果你有任何疑问或需要帮助，请随时联系我们的管理员。感谢你的支持和合作，让我们共同打造一个繁荣、友好的论坛社区！<br>
+            联系方式：<br>
+
+            1.论坛管理员：[fzy]
+            2.电子邮件：[allenfzy2022@163.com]
+            3.社交媒体：[Facebook]<br>
+
+            如果你有任何反馈或建议，我们非常乐意听取。<br>
+        </p>
+        <div class="right-align" style="text-align: right; font-size: 32px;">
+            <a href="/">返回首页</a>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    /* 获取底层盒子main元素 */
+    var main = document.querySelector('.main');
+    /* 得到main的宽度 */
+    let width = main.offsetWidth;
+    /* 得到main的高度 */
+    let height = main.offsetHeight;
+    /* 建一个颜色数组，放上几种颜色 */
+    let color = ["#BBFF00", "#FF3333", "#FFFF77", "#0044BB", "#FF77FF", "#99FFFF", "#DDDDDD", "#FF44AA"];
+    /*  计算一行需要多少的小圆圈，圆圈是20*20的 */
+    let chuang = Math.floor(width / 20);
+    /*  计算一列需要多少的小圆圈 */
+    let kuan = Math.floor(height / 20);
+    /* 圆圈的总数 */
+    let zong = chuang * kuan;
+    /*   循环添加全部圆圈 */
+    for (let i = 1; i < zong; i++) {
+        /* 创建div盒子 */
+        let dot = document.createElement('div');
+        /* 给新建的盒子添加类名为.dot的选择器 */
+        dot.classList.add('dot');
+        /* 给新建的盒子添加一个随机颜色 */
+        dot.style.cssText = ` --color: ${color[Math.floor(Math.random() * 8)]}; `
+        /* 给底层盒子main添加这个新建的div */
+        main.appendChild(dot);
+    }
+
+    {#<img src="your-image-url" alt="description"></img>#}
+</script>
+</body>
+</html>

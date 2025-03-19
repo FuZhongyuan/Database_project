@@ -1,0 +1,178 @@
+{% extends 'cms/base.html' %}
+
+{% block title %}帖子管理{% endblock %}
+
+{% block head %}
+    <script src="{{ url_for('static',filename='cms/js/posts.js') }}"></script>
+        <style>
+        .modal-content {
+            border-radius: 10px; /* 圆角边框 */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* 添加阴影效果 */
+        }
+
+        .modal-header {
+            background-color: #f8d7da; /* 头部背景色 */
+            color: #721c24; /* 文字颜色 */
+            border-color: #f5c6cb; /* 边框颜色 */
+        }
+
+        .modal-title {
+            font-size: 1.25rem; /* 标题字体大小 */
+        }
+
+        .modal-body p {
+            color: #495057; /* 文字颜色 */
+        }
+
+        .modal-footer {
+            background-color: #fff; /* 底部背景色 */
+            border-top: 1px solid #e9ecef; /* 上边框 */
+        }
+
+        /* 确保模态框内的按钮有统一的样式 */
+        .btn-secondary {
+            background-color: #6c757d;
+            border-color: #6c757d;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            border-color: #545b62;
+        }
+
+
+                /* 添加一些基本的悬停效果 */
+        .btn:hover {
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        /* 为编辑按钮添加特定的样式 */
+        .edit-post-btn {
+            background-color: #28a745; /* Bootstrap成功颜色 */
+            border-color: #28a745;
+        }
+
+        .edit-post-btn:hover {
+            background-color: #218838;
+            border-color: #1e7e34;
+        }
+
+        /* 为激活/隐藏按钮添加特定的样式 */
+        .active-btn {
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        /* 隐藏按钮 */
+        .btn-danger:hover {
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+
+        /* 取消隐藏按钮 */
+        .btn-info:hover {
+            background-color: #17a2b8;
+            border-color: #17a2b8;
+        }
+
+        /* 添加图标样式 */
+        .fa {
+            margin-right: 5px; /* 为图标和文本之间添加一些间距 */
+        }
+    </style>
+{% endblock %}
+
+{% block page_title %}
+    {{ self.title() }}
+{% endblock %}
+
+{% block main_content %}
+
+    <script>
+        // 检查是否有闪现消息
+        $(document).ready(function () {
+            // 假设你已经有一种方法来获取闪现消息
+            var errorMessage = '{{ get_flashed_messages(category_filter=["error"]) | join(" ") }}';
+            if (errorMessage) {
+                // 使用 Bootstrap 的模态框显示错误消息
+                $('#errorModal').modal('show');
+                // 或者使用 jQuery UI 的对话框
+                // $('#errorDialog').dialog('open');
+            }
+        });
+    </script>
+
+    <!-- Bootstrap 模态框 -->
+    <div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLabel">新板块名称输入错误</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p id="error-message">{{ get_flashed_messages(category_filter=["error"]) | join(" ") }}</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <table class="table table-bordered" style="color: #FFAE42">
+        <thead>
+        <tr>
+            <th>标题</th>
+            <th>发布时间</th>
+            <th>板块</th>
+            <th>作者</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for post in posts %}
+            <tr>
+                <td><a target="_blank" href="{{ url_for("front.post_detail",post_id=post.id) }}">{{ post.title }}</a>
+                </td>
+                <td>{{ post.create_time }}</td>
+                <td>{{ post.board.name }}</td>
+                <td>{{ post.author.username }}</td>
+                <td>
+{#                    <button class="btn btn-sm edit-post-btn" data-post-id="{{ post.id }} "#}
+{#                            data-post-name="{{ post.title }}">编辑#}
+{#                    </button>#}
+{#                    {% if post.is_active %}#}
+{#                        <button class="btn btn-danger btn-sm active-btn" data-active="1" data-post-id="{{ post.id }}">#}
+{#                            隐藏#}
+{#                        </button>#}
+{#                    {% else %}#}
+{#                        <button class="btn btn-info btn-sm active-btn" data-active="0" data-post-id="{{ post.id }}">#}
+{#                            取消隐藏#}
+{#                        </button>#}
+{#                    {% endif %}#}
+                    <button class="btn btn-sm edit-post-btn" data-post-id="{{ post.id }}" data-post-name="{{ post.title }}">
+                        <i class="fa fa-edit"></i> 编辑
+                    </button>
+                    {% if post.is_active %}
+                        <button class="btn btn-danger btn-sm active-btn" data-active="1" data-post-id="{{ post.id }}">
+                            <i class="fa fa-eye-slash"></i> 隐藏
+                        </button>
+                    {% else %}
+                        <button class="btn btn-info btn-sm active-btn" data-active="0" data-post-id="{{ post.id }}">
+                            <i class="fa fa-eye"></i> 取消隐藏
+                        </button>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+{% endblock %}

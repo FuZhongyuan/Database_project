@@ -1,0 +1,65 @@
+{% extends 'front/base.html' %}
+
+{% block title %}
+    南开大学校园集市注册
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='front/css/sign.css') }}">
+    <script src="{{ url_for('static',filename='front/js/register.js') }}"></script>
+    <script src="{{ url_for('static', filename='front/js/form_validation.js') }}"></script>
+{% endblock %}
+
+{% block body %}
+    <h1 class="page-title">注册</h1>
+    <div class="sign-box">
+        <form action="{{ url_for('user.register') }}" method="post" id="register-form">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <div class="form-group">
+                <div class="input-group">
+                    <input type="text" id="exampleInputEmail1" class="form-control" name="email" placeholder="邮箱">
+                </div>
+                <small id="emailHelp" class="form-text text-muted">我们不会把邮箱用于其他用户</small>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <input id="exampleInputVerification" type="text" class="form-control" name="captcha" placeholder="邮箱验证码">
+                    <div class="input-group-append">
+                        <button id="captcha-btn" class="btn btn-outline-secondary">发送验证码</button>
+                    </div>
+                </div>
+                <small id="VerificationHelp" class="form-text text-muted">请输入6位邮箱验证码</small>
+            </div>
+            <div class="form-group">
+                <input id="exampleInputUsername1" type="text" class="form-control" name="username" placeholder="用户名">
+                <small id="usernameHelp" class="form-text text-muted">请输入2-20位用户名</small>
+            </div>
+            <div class="form-group">
+                <input id="exampleInputPassword1" type="password" class="form-control" name="password" placeholder="密码">
+                <small id="passwordHelp" class="form-text text-muted">请输入6-20位密码</small>
+            </div>
+            <div class="form-group">
+                <input id="exampleInputPassword_confirm1" type="password" class="form-control" name="confirm_password" placeholder="确认密码">
+                <small id="Password_confirmHelp" class="form-text text-muted">请输入和密码一样的确认密码</small>
+            </div>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="form-group">
+                        <ul>
+                            {% for message in messages %}
+                                <li class="text-danger">{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+            {% endwith %}
+            <div class="form-group">
+                <button class="btn btn-warning btn-block" id="submit-btn">立即注册</button>
+            </div>
+            <div class="form-group">
+                <a href="#" class="signup-link">返回登陆</a>
+                <a href="#" class="resetpwd-link" style="float:right;">找回密码</a>
+            </div>
+        </form>
+    </div>
+{% endblock %}

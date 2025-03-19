@@ -1,0 +1,233 @@
+html, body {
+    width: 100%;
+	height: 100%;
+    /*cursor: url("https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/cursor/normal.cur"), auto;*/
+    cursor: url('https://cdn.jsdelivr.net/gh/fz6m/Private-web@1.5/image/cursor/normal.cur'),auto;
+    /*cursor: url(https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/cursor/work.cur), auto;*/
+}
+body {
+    width: 100%;
+    height: 100%; /*设置为全屏背景模式*/
+    /*opacity: 50%; !*设置透明度   blur还可以改变照片的模糊度*!*/
+    /*filter: brightness(120%) contrast(120%);*/
+    /*background-image: url('https://ts1.cn.mm.bing.net/th/id/R-C.6347cda930991a1410abcb300532cd3b?rik=zMJWFDt6%2bwtQsA&riu=http%3a%2f%2fa.ksbbs.com%2fMon_1701%2f50_676936_b926eba53664c1d.gif%3f2021&ehk=qfuoiWKG4xOyZjSdvLTyjrsDmYLDk8ugZyvoaIvlO3E%3d&risl=&pid=ImgRaw&r=0');*/
+    background-image: url('https://ts1.cn.mm.bing.net/th/id/R-C.cf0a2331b7f104b81f37e4dbdef3c50c?rik=GEmlAoWO8IAbMw&riu=http%3a%2f%2f5b0988e595225.cdn.sohucs.com%2fimages%2f20171011%2f2b4d8c5a038c4d8fa77003c9f72d6690.gif&ehk=IlcPSWEWicjxjlfIEhnfcvfIqyNlt%2fgrhUshXEQN51o%3d&risl=&pid=ImgRaw&r=0');
+    background-color: rgba(255, 255, 255, 0.1);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed; /*将图片固定*/
+    position: absolute; /*图片定位*/
+}
+
+.main-body {
+    width: 100%;
+    display: flex;
+}
+
+.left-body {
+    width: 200px;
+    position: relative;
+}
+
+.right-body {
+    flex: 1;
+}
+
+.sub-header {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+/*
+ * Top navigation
+ * Hide default border to remove 1px line.
+ */
+.navbar-fixed-top {
+    border: 0;
+}
+
+/*
+ * Sidebar
+ */
+
+/* Hide for mobile, show later */
+.sidebar {
+    display: none;
+}
+
+
+@media (min-width: 768px) {
+    .sidebar {
+        box-sizing: border-box;
+        width: 200px;
+        position: fixed;
+        top: 56px;
+        bottom: 0;
+        left: 0;
+        z-index: 1000;
+        display: block;
+        padding: 20px;
+        background-color: #363a47;
+        border-right: 1px solid #eee;
+    }
+}
+
+.nav-sidebar {
+    padding: 5px 0;
+    margin-left: -20px;
+    margin-right: -20px;
+}
+
+.nav-sidebar > li {
+    background: #494f60;
+    border-bottom: 1px solid #363a47;
+    border-top: 1px solid #666;
+    line-height: 35px;
+}
+
+.nav-sidebar > li > a {
+    background: #494f60;
+    color: #9b9fb1;
+    margin-left: 25px;
+    display: block;
+}
+
+.nav-sidebar > li a span {
+    float: right;
+    width: 10px;
+    height: 10px;
+    border-style: solid;
+    border-color: #9b9fb1 #9b9fb1 transparent transparent;
+    border-width: 1px;
+    transform: rotate(45deg);
+    position: relative;
+    top: 10px;
+    margin-right: 10px;
+}
+
+.nav-sidebar > li > a:hover {
+    color: #fff;
+    background: #494f60;
+    text-decoration: none;
+}
+
+.nav-sidebar > li > .subnav {
+    display: none;
+}
+
+.nav-sidebar > li.unfold {
+    background: #494f60;
+}
+
+.nav-sidebar > li.unfold > .subnav {
+    display: block;
+}
+
+.nav-sidebar > li.unfold > a {
+    color: #db4055;
+}
+
+.nav-sidebar > li.unfold > a span {
+    transform: rotate(135deg);
+    top: 5px;
+    border-color: #db4055 #db4055 transparent transparent;
+}
+
+.subnav {
+    padding-left: 10px;
+    padding-right: 10px;
+    background: #363a47;
+    overflow: hidden;
+}
+
+.subnav li {
+    overflow: hidden;
+    margin-top: 10px;
+    line-height: 25px;
+    height: 25px;
+}
+
+.subnav li.active {
+    background: #db4055;
+}
+
+.subnav li a {
+    /*display: block;*/
+    color: #9b9fb1;
+    padding-left: 30px;
+    height: 25px;
+    line-height: 25px;
+}
+
+.subnav li a:hover {
+    color: #fff;
+}
+
+.nav-group {
+    margin-top: 10px;
+}
+
+
+.main {
+    padding: 20px;
+    /*cursor: url(https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/cursor/normal.cur), auto;*/
+    cursor: url('https://cdn.jsdelivr.net/gh/fz6m/Private-web@1.5/image/cursor/normal.cur'),auto;
+}
+
+@media (min-width: 768px) {
+    .main {
+        padding-right: 40px;
+        padding-left: 40px;
+    }
+}
+
+.main .page-header {
+    margin-top: 0;
+}
+
+
+/*
+ * Placeholder dashboard ideas
+ */
+
+.placeholders {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.placeholders h4 {
+    margin-bottom: 0;
+}
+
+.placeholder {
+    margin-bottom: 20px;
+}
+
+.placeholder img {
+    display: inline-block;
+    border-radius: 50%;
+}
+
+.main_content {
+    margin-top: 20px;
+    /*cursor: url(https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/cursor/normal.cur), auto;*/
+    cursor: url('https://cdn.jsdelivr.net/gh/fz6m/Private-web@1.5/image/cursor/normal.cur'),auto;
+}
+
+.top-group {
+    padding: 5px 10px;
+    border-radius: 2px;
+    background: #ecedf0;
+    overflow: hidden;
+}
+
+.form-container {
+    width: 300px;
+}
+
+.top-box {
+    overflow: hidden;
+    background: #ecedf0;
+    padding: 10px;
+}

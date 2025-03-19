@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static',filename='common/zlajax.js') }}"></script>
+    <script src="{{ url_for('static',filename='front/js/base.js') }}"></script>
+    {#    <script src="{{ url_for('static',filename='front/js/base.js') }}"></script>#}
+    <link rel="stylesheet" href="{{ url_for('static',filename='front/css/base.css') }}">
+    {#    <link type="text/css" rel="stylesheet" href="{{ url_for('static',filename='front/css/custom.css') }}">#}
+    <title>{% block title %}{% endblock %}</title>
+    {% block head %}{% endblock %}
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/" target="_blank">南开大学校园集市论坛</a>
+    <a style="color: #db4055" class="navbar-brand"
+       href="https://tieba.baidu.com/f?ie=utf-8&kw=%E5%8D%97%E5%BC%80%E5%A4%A7%E5%AD%A6"
+       target="_blank">南开大学贴吧入口</a>
+    <a class="navbar-brand" href="{{ url_for('front.laws') }}" target="_blank">论坛使用说明</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/" target="_blank">首页 <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+        <form class="form-inline my-lg-0" method="GET" action="{{ url_for('front.search') }}">
+            <input class="form-control mr-sm-2" type="search" placeholder="请输入关键字" aria-label="Search" name="q">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">搜索</button>
+        </form>
+        <ul class="navbar-nav ml-4">
+            {% if g.user %}
+                {% if g.user.is_staff %}
+                    <li class="nav-item">
+                        <a href="{{ url_for('cms.index') }}" target="_blank" class="nav-link">管理系统</a>
+                    </li>
+                {% endif %}
+                <li class="nav-item">
+                    <a href="{{ url_for('user.profile',user_id=g.user.id) }}" class="nav-link">{{ g.user.username }}</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url_for('user.profile', user_id=g.user.id) }}" class="nav-link">
+                        <span style="background-image: url({{ g.user.avatar }}); display: inline-block; width: 50px; height: 50px; background-size: cover; background-repeat: no-repeat;"></span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url_for("user.logout") }}" class="nav-link">退出登录</a>
+                </li>
+                <li class="nav-item">
+                    {#                    <a href="{{ url_for("user.logoff") }}" method="post" class="nav-link">注销账号</a>#}
+                    <form action="{{ url_for('user.logoff') }}" method="post">
+                        <button type="submit" class="nav-link" id="logoff">注销账号</button>
+                        <div id="logoff_link" data-url="{{ url_for('user.register') }}"></div>
+                    </form>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('user.login') }}">登录</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('user.register') }}">注册</a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
+<div class="main-container" style="color: #BC8F8F">
+    <div class="mouse"></div> <!-- 使用一个 div 元素作为鼠标指针 -->
+    {% block body %}{% endblock %}
+</div>
+{# <video src="https://c-ssl.dtstatic.com/uploads/item/201808/01/20180801054113_pfnci.thumb.1000_0.gif" class="bjimg" autoplay loop muted></video>#}
+{#<div class="mybox"></div>#}
+</body>
+</html>

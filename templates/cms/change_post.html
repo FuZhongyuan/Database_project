@@ -1,0 +1,42 @@
+{% extends "cms/base.html" %}
+
+{% block title -%}
+    修改帖子
+{%- endblock %}
+
+{% block head %}
+    {#    <script src="{{ url_for('static',filename='cms/js/edit_staff.js') }}"></script>#}
+{% endblock %}
+
+{% block page_title -%}
+    {{ self.title() }}
+{%- endblock %}
+
+{% block main_content %}
+    <h2 style="color: #db4055">修改帖子所属板块</h2>
+    {#    <form action="{{ url_for('cms.edit_staff',user_id=user.id) }}" method="post">#}
+    <form action="{{ url_for('cms.change_post_belong') }}" method="POST" style="color: #FFAE42">
+{#        {{ form.csrf_token }}#}
+        <div>
+            <label for="original_name">原帖子所属板块类型名称：</label><br>
+            <p>{{ board_name }}</p>
+            <input type="text" id="original_board_name" name="original_board_name" required><br>
+
+            {#            <input type="text" id="original_name" name="original_name" required><br>#}
+        </div>
+        <div>
+            <label for="new_name">新所属板块类型名称：：</label><br>
+            <input type="text" id="new_name" name="new_name" required><br>
+        </div>
+        <div>
+            <label for="reason">理由：</label><br>
+            <textarea id="reason" name="reason" rows="4" cols="50"></textarea><br>
+        </div>
+        <div>
+            <label for="contact">联系方式：</label><br>
+            <input type="text" id="contact" name="contact"><br>
+        </div>
+        <br>
+        <input type="submit" value="提交">
+    </form>
+{% endblock %}

@@ -1,0 +1,78 @@
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    list-style: none;
+}
+
+button {
+    outline: none;
+    border: none;
+}
+
+.main-container {
+    width: 990px;
+    margin: 0 auto;
+    padding-top: 20px;
+    /*overflow: hidden;*/
+    /*cursor: url("../../../image/cursora.ico"), pointer;*/
+    /*cursor: url(https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/cursor/normal.cur), auto;*/
+
+}
+
+.lg-container {
+    width: 730px;
+    float: left;
+}
+
+.sm-container {
+    width: 250px;
+    float: right;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    cursor: url("https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/cursor/normal.cur"), auto;
+    /*cursor: url("https://cdn.jsdelivr.net/gh/fz6m/Private-web@1.5/image/cursor/normal.cur"), auto;*/
+}
+
+body {
+    width: 100%;
+    height: 100%; /*设置为全屏背景模式*/
+    /*opacity: 50%; !*设置透明度   blur还可以改变照片的模糊度*!*/
+    filter: brightness(120%) contrast(120%);
+    /*background-image: url('https://ts1.cn.mm.bing.net/th/id/R-C.6347cda930991a1410abcb300532cd3b?rik=zMJWFDt6%2bwtQsA&riu=http%3a%2f%2fa.ksbbs.com%2fMon_1701%2f50_676936_b926eba53664c1d.gif%3f2021&ehk=qfuoiWKG4xOyZjSdvLTyjrsDmYLDk8ugZyvoaIvlO3E%3d&risl=&pid=ImgRaw&r=0');*/
+    background-image: url('https://wallpaperaccess.com/full/2471303.gif');
+    background-color: rgba(255, 255, 255, 0.1);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed; /*将图片固定*/
+    position: absolute; /*图片定位*/
+}
+
+
+/*.mybox {*/
+/*    width: 600px;*/
+/*    height: 600px;*/
+/*    border: 1px solid red;*/
+/*    background: url(https://c-ssl.dtstatic.com/uploads/item/201808/01/20180801054113_pfnci.thumb.1000_0.gif) no-repeat;*/
+/*/ / 在这里可以进行更改*/
+/*}*/
+
+
+/*body {*/
+/*    cursor: none; !* 隐藏默认的鼠标指针 *!*/
+/*}*/
+
+/*.mouse {*/
+/*    width: 50px;*/
+/*    height: 50px;*/
+/*    border-radius: 50%;*/
+/*    position: fixed;*/
+/*    !*background-image: url('/image/normal.cur'); !* 替换为正确的图片路径和格式 *!*!*/
+/*    background-size: cover; !* 覆盖整个容器 *!*/
+/*    z-index: 1000;*/
+/*}*/
